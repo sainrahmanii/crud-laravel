@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>CREATE</title>
+    <title>EDIT</title>
 </head>
 <body>
 
@@ -14,9 +14,10 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
-                        <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('product.update', $product->id) }}" method="POST" enctype="multipart/form-data">
                         
                             @csrf
+                            @method('PUT')
 
                             <div class="form-group">
                                 <label class="font-weight-bold">NAME</label>

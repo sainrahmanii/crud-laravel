@@ -30,27 +30,27 @@
                               </tr>
                             </thead>
                             <tbody>
-                              @forelse ($product as $p)
-                                <tr>
-                                    <td>{{ $p->nama }}</td>
-                                    <td>{!! $p->harga !!}</td>
-                                    <td class="text-center">
-                                        <img src="{{ Storage::url('public/product/').$p->gambar }}" class="rounded" style="width: 150px" alt="product image">
-                                    </td>
-                                    <td class="text-center">
-                                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('product.destroy', $p->id) }}" method="POST">
-                                            <a href="{{ route('product.edit', $p->id) }}" class="btn btn-sm btn-primary">EDIT</a>
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger">DELETE</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                              @empty
-                                  <div class="alert alert-danger">
-                                      Data Post belum Tersedia.
-                                  </div>
-                              @endforelse
+                                @forelse ($product as $p)
+                                    <tr class="text-center">
+                                        <td>{{ $p->nama }}</td>
+                                        <td>Rp {!! $p->harga !!}</td>
+                                        <td class="text-center">
+                                            <img src="{{ Storage::url('public/product/').$p->gambar }}" class="rounded" style="width: 150px" alt="product image">
+                                        </td>
+                                        <td class="text-center">
+                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('product.destroy', $p->id) }}" method="POST">
+                                                <a href="{{ route('product.edit', $p->id) }}" class="btn btn-sm btn-primary">EDIT</a>
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-sm btn-danger">DELETE</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <div class="alert alert-danger">
+                                        Data Product belum Tersedia.
+                                    </div>
+                                @endforelse
                             </tbody>
                           </table>  
                           
